@@ -1,0 +1,20 @@
+.header{
+    display: flex;
+}
+
+.header a{  
+    align-items: flex-start;
+    text-decoration: none;
+}
+
+.header .logo {
+    max-height: 80px;
+}
+
+.header .botao{
+    flex: 1 1 auto;
+}
+
+.header .spacer{
+    flex: 1 1 auto;
+}
