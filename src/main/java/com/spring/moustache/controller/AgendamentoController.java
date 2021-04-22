@@ -60,7 +60,7 @@ public class AgendamentoController {
 
     @RequestMapping(value = "/agenda", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody List<Agendamento> todosAgendamentos(@PathVariable long id) {
+    public @ResponseBody List<Agendamento> todosAgendamentos() {
         List<Agendamento> listar = agendamentoRepository.findAll();
 
         return listar;
