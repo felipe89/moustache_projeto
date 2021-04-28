@@ -64,7 +64,5 @@ public class AgendamentoController {
         List<Agendamento> listar = agendamentoRepository.findAll();
 
         return listar;
-
-        //Funcionando 
     }
 }
