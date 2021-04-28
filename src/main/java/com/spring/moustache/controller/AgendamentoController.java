@@ -49,10 +49,10 @@ public class AgendamentoController {
         agendamentoRepository
         .findById(id)
         .map(agendamento -> {
-            agendamento.setNome(agendamento.getNome());
-            agendamento.setEmail(agendamento.getEmail());
-            agendamento.setData(agendamento.getData());
-            agendamento.setHora(agendamento.getHora());
+            agendamento.setNome(agendamentoAtualizado.getNome());
+            agendamento.setEmail(agendamentoAtualizado.getEmail());
+            agendamento.setData(agendamentoAtualizado.getData());
+            agendamento.setHora(agendamentoAtualizado.getHora());
             return agendamentoRepository.save(agendamentoAtualizado);
         })
         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cadastro não encontrado"));

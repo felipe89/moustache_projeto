@@ -5,6 +5,7 @@ import com.sun.istack.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -24,15 +25,16 @@ public class Agendamento {
     private String nome;
 
     @NotNull
+    @Email (message = "{campo.email.obrigatorio}")
     private String email;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    @NotEmpty(message = "{campo.data.obrigatorio}")
+    @NotNull
     private LocalDate data;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
-    @NotEmpty(message = "{campo.hora.obrigatorio}")
+    @NotNull
     private LocalTime hora;
 
     public long getId() {
@@ -74,7 +76,10 @@ public class Agendamento {
     public void setHora(LocalTime hora) {
         this.hora = hora;
     }
-    public void preSave(){
-        this.data = LocalDate.now();
+    public void preDate(){
+        setData(LocalDate.now());
+    }
+    public void preHora(){
+        setHora(LocalTime.of(00,10,00));
     }
 }
